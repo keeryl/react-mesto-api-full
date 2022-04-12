@@ -1,11 +1,6 @@
-//////////ТОКЕН//////////////
-// Токен: 4e3158fe-c157-45ee-9ba8-36277de198c7
-// Идентификатор группы: cohort-25
-/////////*****//////////////
-// import config from './constants.js';
 const config = {
-  token: '4e3158fe-c157-45ee-9ba8-36277de198c7',
-  baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-25',
+  token: '',
+  baseUrl: 'http://api.keeryl-mesto.nomoredomains.work',
 }
 
 class Api {

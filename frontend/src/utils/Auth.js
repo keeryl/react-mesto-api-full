@@ -1,5 +1,5 @@
 
-const baseUrl = 'https://auth.nomoreparties.co';
+const baseUrl = 'http://api.keeryl-mesto.nomoredomains.work';
 
 
 class Auth {
