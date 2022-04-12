@@ -4,7 +4,7 @@ const ERROR_403 = 403;
 const ERROR_404 = 404;
 const ERROR_409 = 409;
 const ERROR_500 = 500;
-const JWT_SECRET = 'FmvkeTe6482902_scj%(&%%!$#&';
+// const JWT_SECRET = 'FmvkeTe6482902_scj%(&%%!$#&';
 const SALT_ROUNDS = 10;
 
 module.exports = {
@@ -14,6 +14,6 @@ module.exports = {
   ERROR_404,
   ERROR_409,
   ERROR_500,
-  JWT_SECRET,
+  // JWT_SECRET,
   SALT_ROUNDS,
 };

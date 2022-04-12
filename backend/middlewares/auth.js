@@ -1,12 +1,12 @@
 const jwt = require('jsonwebtoken');
-
-const {
-  JWT_SECRET,
-} = require('../utils/constants');
+require('dotenv').config();
+const { JWT_SECRET } = process.env;
+// const {
+//   JWT_SECRET,
+// } = require('../utils/constants');
 
 const {
   AuthError,
-  // ForbiddenError,
 } = require('../utils/customErrors');
 
 module.exports = (req, res, next) => {

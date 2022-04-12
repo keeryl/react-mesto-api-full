@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const { errors, celebrate } = require('celebrate');
 const cardsRouter = require('./routes/cards');
 const usersRouter = require('./routes/users');
+require('dotenv').config();
 
 const app = express();
 const { PORT = 3000 } = process.env;
