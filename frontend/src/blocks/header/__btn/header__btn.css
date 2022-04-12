@@ -1,0 +1,29 @@
+.header__btn {
+  color:#A9A9A9;
+  font-weight: 400;
+  font-size: 18px;
+  text-decoration: none;
+  opacity: 1;
+  transition: opacity .2s linear;
+  cursor: pointer;
+  border: none;
+  background-color: inherit;
+  padding: 0;
+}
+
+.header__btn:hover {
+    opacity: .7;
+}
+
+.popup__btn:focus {
+    outline: none;
+  }
+  
+  .popup__btn:active {
+    border: none;
+  }
+  
+  .header__btn:disabled {
+    opacity: .2;
+    cursor: default;
+  }

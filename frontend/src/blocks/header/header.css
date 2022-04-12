@@ -1,0 +1,17 @@
+.header {
+  width: 100%;
+  max-width: 880px;
+  min-height: 84px; /* В чем преимущество управления высотой через паддинги? */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #545454;
+}
+
+@media screen and (min-width: 930px) {
+
+  .header {
+    min-height: 119px;
+  }
+
+}

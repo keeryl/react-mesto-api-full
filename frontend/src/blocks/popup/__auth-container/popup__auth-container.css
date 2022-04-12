@@ -1,0 +1,15 @@
+.popup__auth-container {
+  width: calc(100% - 38px);
+  max-width: 430px;
+  min-height: 330px;
+  box-sizing: border-box;
+  padding: 60px 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  gap: 32px;
+  background-color: #fff;
+  border-radius: 10px;
+  position: relative;
+}

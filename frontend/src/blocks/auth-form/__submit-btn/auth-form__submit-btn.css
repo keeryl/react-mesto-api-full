@@ -1,0 +1,30 @@
+.auth-form__submit-btn {
+  width: 100%;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.2;
+  color: #000000;
+  padding: 14px 0;
+  border: none;
+  border-radius: 2px;
+  outline: none;
+  transition: opacity .2s linear;
+  cursor: pointer;
+}
+
+.auth-form__submit-btn:hover {
+  opacity: .8;
+}
+
+.auth-form__submit-btn:focus {
+  outline: none;
+}
+
+.auth-form__submit-btn:active {
+  border: none;
+}
+
+.auth-form__submit-btn:disabled {
+  opacity: .2;
+  cursor: default;
+}

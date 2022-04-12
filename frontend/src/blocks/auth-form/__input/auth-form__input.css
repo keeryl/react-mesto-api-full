@@ -1,0 +1,14 @@
+.auth-form__input {
+  background-color: inherit;
+  width: 100%;
+  border: 0;
+  border-bottom: 1px solid white;
+  outline: none;
+  font-size: 14px;
+  line-height: 1.2;
+  color: white;
+}
+
+.auth-form__input::placeholder {
+  color: white;
+}

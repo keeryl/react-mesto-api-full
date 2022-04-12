@@ -1,0 +1,9 @@
+.header__logo_margin-left {
+  margin: 0 0 0 27px;
+}
+
+@media screen and (min-width: 930px) {
+  .header__logo_margin-left {
+    margin-left: 0;
+  }
+}

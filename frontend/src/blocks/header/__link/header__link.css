@@ -1,0 +1,26 @@
+.header__link {
+  text-decoration: none;
+  opacity: 1;
+  transition: opacity .2s linear;
+  color: white;
+  cursor: pointer;
+  font-weight: 400;
+  font-size: 18px;
+}
+
+.header__link:hover {
+    opacity: .7;
+}
+
+.popup__link:focus {
+    outline: none;
+  }
+  
+  .popup__link:active {
+    border: none;
+  }
+  
+  .header__link:disabled {
+    opacity: .2;
+    cursor: default;
+  }

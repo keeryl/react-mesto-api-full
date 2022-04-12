@@ -1,0 +1,23 @@
+.auth-form__link {
+  color: white;
+  text-decoration: none;
+  transition: opacity .2s linear;
+  cursor: pointer;
+}
+
+.auth-form__link:hover {
+  opacity: .8;
+}
+
+.auth-form__link:focus {
+  outline: none;
+}
+
+.auth-form__link:active {
+  border: none;
+}
+
+.auth-form__link:disabled {
+  opacity: .2;
+  cursor: default;
+}
