@@ -10,11 +10,6 @@ require('dotenv').config();
 const app = express();
 const { PORT = 3000 } = process.env;
 
-const allowedCors = [
-  'https://keeryl-mesto.nomoredomains.work',
-  'http://keeryl-mesto.nomoredomains.work',
-  'localhost:3000'
-];
 const { login, createUser } = require('./controllers/users');
 const {
   userSchema,
@@ -29,9 +24,10 @@ mongoose.connect('mongodb://localhost:27017/mestodb', {
   useNewUrlParser: true,
 });
 
-app.use(cors({
-  origin: 'http://keeryl-mesto.nomoredomains.work/'
-}));
+app.use(cors());
+// app.use(cors({
+//   origin: 'http://keeryl-mesto.nomoredomains.work/'
+// }));
 app.use(bodyParser.json());
 app.use(requestLogger);
 app.post('/signin', celebrate(loginSchema), login);
