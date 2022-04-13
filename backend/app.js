@@ -6,9 +6,11 @@ const cardsRouter = require('./routes/cards');
 const usersRouter = require('./routes/users');
 const cors = require('cors');
 require('dotenv').config();
+console.log(process.env);
 
 const app = express();
 const { PORT = 3000 } = process.env;
+console.log(process.env);
 
 const { login, createUser } = require('./controllers/users');
 const {
