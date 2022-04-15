@@ -8,10 +8,6 @@ class Auth {
   }
 
   register (userPassword, userEmail) {
-    console.log(`Запрос на сервер для регистрации: ${JSON.stringify({
-      password: userPassword,
-      email: userEmail,
-    })}`);
     return fetch(`${this._baseUrl}/signup`, {
       method: 'POST',
       headers: {

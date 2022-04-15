@@ -19,7 +19,6 @@ import InfoTooltip from './InfoTooltip/InfoTooltip.js';
 
 function App() {
 
-  const [email, setEmail] = React.useState('');
   const [currentUser, setCurrentUser] = React.useState({});
   const [isEditProfilePopupOpen, setIsEditProfilePopup] = React.useState(false);
   const [isAddPlacePopupOpen, setIsAddPlacePopup] = React.useState(false);
@@ -36,22 +35,24 @@ function App() {
   React.useEffect(() => {
       api.getInitialCards()
         .then(result => {
-          setCards([...result]);
+          console.log(result)
+          setCards([ ...result ]);
         })
         .catch(error => {
           console.log(error);
         });
     }, []);
 
-  React.useEffect(() => {
-      api.getUserInfo()
-        .then(result => {
-          setCurrentUser({...result});
-        })
-        .catch(error => {
-          console.log(error);
-        });
-    }, []);
+  // React.useEffect(() => {
+  //     api.getUserInfo()
+  //       .then(result => {
+  //         console.log(result)
+  //         setCurrentUser({...result});
+  //       })
+  //       .catch(error => {
+  //         console.log(error);
+  //       });
+  //   }, []);
 
   React.useEffect(() => {
     tokenCheck();
@@ -63,7 +64,8 @@ function App() {
       auth.getContent(token)
         .then(res => {
           if (res) {
-            setEmail(res.data.email)
+            console.log(res);
+            setCurrentUser({ ...res.user });
             setLoggedIn(true);
             history.push('/');
           }
@@ -75,7 +77,7 @@ function App() {
   }
 
   const handleCardLike = (card) => {
-    const isLiked = card.likes.some(like => like._id === currentUser._id);
+    const isLiked = card.likes.some(like => like === currentUser._id);
     if (isLiked) {
       api.removeLike(card._id)
         .then(result => {
@@ -96,7 +98,7 @@ function App() {
   }
 
   const handleCardDelete = (card) => {
-    const isOwn = card.owner._id === currentUser._id;
+    const isOwn = card.owner === currentUser._id;
     if (isOwn) {
       api.deleteCard(card._id)
         .then(result => {
@@ -114,8 +116,8 @@ function App() {
       .then(result => {
         setCurrentUser({
           ...currentUser,
-          name: result.name,
-          about: result.about,
+          name: result.user.name,
+          about: result.user.about,
         });
         closeAllPopups();
       })
@@ -129,7 +131,7 @@ function App() {
       .then(result => {
         setCurrentUser({
           ...currentUser,
-          avatar: result.avatar,
+          avatar: result.user.avatar,
         });
         closeAllPopups();
       })
@@ -141,7 +143,8 @@ function App() {
   function handleAddPlaceSubmit (cardName, cardUrl) {
     api.addCard(cardName, cardUrl)
       .then(result => {
-        setCards([result, ...cards]);
+        console.log(result)
+        setCards([result.card, ...cards]);
         closeAllPopups();
       })
       .catch(error => {
@@ -180,27 +183,24 @@ function App() {
     setSelectedCard(card);
   }
 
-  function handleLogin (userEmail) {
-    setEmail(userEmail);
+  function handleLogin () {
+    tokenCheck();
     setLoggedIn(true);
   }
 
   function handleLogout () {
     setLoggedIn(false);
-    setEmail('');
+    setCurrentUser({});
   }
 
-  function handleRegistrationSubmit (userEmail) {
+  function handleRegistrationSubmit (user) {
     setRegistrationState(true);
-    setEmail(userEmail);
     setTimeout(setTooltipPopupState, 1 * 300, true);
-    // setTooltipPopupState(true);
   }
 
   function handleRegistrationError () {
     setRegistrationState(false);
     setTimeout(setTooltipPopupState, 1 * 300, true);
-    // setTooltipPopupState(true);
   }
 
   const closeInfoTooltipPopup = () => {
@@ -217,7 +217,7 @@ function App() {
   return (
     <div className="page">
       <CurrentUserContext.Provider value={currentUser}>
-        <Header loggedIn={loggedIn} onLogout={handleLogout} email={email}/>
+        <Header loggedIn={loggedIn} onLogout={handleLogout} />
         <Switch>
           <ProtectedRoute
             exact path="/"

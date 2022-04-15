@@ -1,9 +1,11 @@
 import React from 'react';
 import logo from '../../blocks/header/images/logo__img.svg';
 import { Link, useHistory, useLocation } from 'react-router-dom';
+import CurrentUserContext from '../../contexts/CurrentUserContext.js';
 
 function Header (props) {
 
+  const currentUser = React.useContext(CurrentUserContext);
   const history = useHistory();
   let location = useLocation();
   const buttonText = `${location.pathname === "/sign-up"? "Войти" : "Регистрация"}`;
@@ -24,7 +26,7 @@ function Header (props) {
       {props.loggedIn ?
           (
           <div className="header__wrapper">
-          <p className="header__email">{props.email}</p>
+          <p className="header__email">{currentUser.email}</p>
           <button className="header__btn" onClick={signOut}>Выйти</button>
           </div>
           )

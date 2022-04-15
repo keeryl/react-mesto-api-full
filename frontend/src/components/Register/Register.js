@@ -20,11 +20,11 @@ function Register (props) {
     auth.register(password, email)
       .then(res => {
         if(res) {
+          console.log(res)
           localStorage.setItem('user', JSON.stringify({
-            email: res.data.email,
-            id: res.data._id
+            email: res.user.email,
           }));
-          props.onRegistrationSubmit(res.data.email);
+          props.onRegistrationSubmit(res.user);
           setPassword('');
           setEmail('');
         }
