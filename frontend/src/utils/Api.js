@@ -12,7 +12,6 @@ class Api {
   //   return fetch(`${this._url}/users/me`, {
   //     headers: {
   //       'Authorization': `Bearer ${this._token}`,
-  //       // mode: 'no-cors',
   //     }
   //   })
   //   .then(this._checkResponse);
@@ -22,7 +21,6 @@ class Api {
     return fetch(`${this._url}/cards`, {
       headers: {
         'Authorization': `Bearer ${this._token}`,
-        // mode: 'no-cors',
       },
     })
     .then(this._checkResponse);
@@ -108,7 +106,6 @@ class Api {
     }
     return Promise.reject(`Ошибка: ${response.status}`);
   }
-
 
 }
 
