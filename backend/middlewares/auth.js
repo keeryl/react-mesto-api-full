@@ -1,10 +1,11 @@
 const jwt = require('jsonwebtoken');
 require('dotenv').config({ debug: true });
+
 const { NODE_ENV, JWT_SECRET } = process.env;
 
 const {
   AuthError,
-} = require('../utils/customErrors');
+} = require('../utils/custom_errors/AuthError');
 
 module.exports = (req, res, next) => {
   const { authorization } = req.headers;
@@ -18,8 +19,7 @@ module.exports = (req, res, next) => {
   let payload;
 
   try {
-    payload = jwt.verify(token, NODE_ENV === 'production' ? JWT_SECRET : 'dev-secret',
-    );
+    payload = jwt.verify(token, NODE_ENV === 'production' ? JWT_SECRET : 'dev-secret');
   } catch (err) {
     return next(new AuthError('Доступ запрещён. Необходима авторизация'));
   }

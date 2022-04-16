@@ -1,5 +1,5 @@
 const config = {
-  baseUrl: 'http://api.keeryl-mesto.nomoredomains.work',
+  baseUrl: 'https://api.keeryl-mesto.nomoredomains.work',
 }
 
 class Api {

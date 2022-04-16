@@ -12,10 +12,9 @@ const loginSchema = {
       'any.required': 'Не указан e-mail',
       'string.notEmail': 'Указан некорректный e-mail',
     }),
-    password: Joi.number().required().integer().min(6)
+    password: Joi.string().required()
       .messages({
         'any.required': 'Не указан пароль',
-        'string.min': 'Пароль должен быть не менее 6 символов',
       }),
   }),
 };
@@ -33,7 +32,7 @@ const userSchema = {
       'string.notURL': 'Указан некорректный адрес URL',
     }),
     email: Joi.string().required().email(),
-    password: Joi.number().required().integer().min(6),
+    password: Joi.string().required(),
   }),
 };
 
@@ -65,14 +64,14 @@ const cardIdSchema = {
 
 const userProfileSchema = {
   [Segments.BODY]: Joi.object().keys({
-    name: Joi.string().min(2).max(30),
-    about: Joi.string().min(2).max(30),
+    name: Joi.string().required().min(2).max(30),
+    about: Joi.string().required().min(2).max(30),
   }),
 };
 
 const userAvatarSchema = {
   [Segments.BODY]: Joi.object().keys({
-    avatar: Joi.string().custom((value, helper) => {
+    avatar: Joi.string().required().custom((value, helper) => {
       if (!validator.isURL(value, { require_protocol: true })) {
         return helper.error('string.notURL');
       }

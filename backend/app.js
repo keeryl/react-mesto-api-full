@@ -2,9 +2,9 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const { errors, celebrate } = require('celebrate');
+const cors = require('cors');
 const cardsRouter = require('./routes/cards');
 const usersRouter = require('./routes/users');
-const cors = require('cors');
 require('dotenv').config({ debug: true });
 
 const app = express();
@@ -18,7 +18,7 @@ const {
 const { errorHandler } = require('./middlewares/errorHandler');
 const auth = require('./middlewares/auth');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
-const { NotFoundError } = require('./utils/customErrors');
+const { NotFoundError } = require('./utils/custom_errors/NotFoundError');
 
 mongoose.connect('mongodb://localhost:27017/mestodb', {
   useNewUrlParser: true,

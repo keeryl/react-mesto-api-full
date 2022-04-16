@@ -1,17 +1,14 @@
+require('dotenv').config({ debug: true });
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const User = require('../models/user');
-require('dotenv').config({ debug: true });
-const { NODE_ENV, JWT_SECRET } = process.env;
-const {
-  SALT_ROUNDS,
-} = require('../utils/constants');
 
-const {
-  NotFoundError,
-  AuthError,
-  ConflictError,
-} = require('../utils/customErrors');
+const { NODE_ENV, JWT_SECRET } = process.env;
+const { SALT_ROUNDS } = require('../utils/constants');
+const { NotFoundError } = require('../utils/custom_errors/NotFoundError');
+const { AuthError } = require('../utils/custom_errors/AuthError');
+const { ConflictError } = require('../utils/custom_errors/ConflictError');
+const { RequestError } = require('../utils/custom_errors/RequestError');
 
 module.exports.getUsers = (req, res, next) => {
   User.find({})
@@ -81,7 +78,13 @@ module.exports.createUser = (req, res, next) => {
     }))
     .then((user) => User.findOne({ _id: user._id }))
     .then((user) => res.send({ user }))
-    .catch(next);
+    .catch((err) => {
+      if (err.name === 'ValidationError') {
+        next(new RequestError('Некорректные данные при создании карточки'));
+      } else {
+        next(err);
+      }
+    });
 };
 
 module.exports.updateUserProfile = (req, res, next) => {
@@ -97,7 +100,13 @@ module.exports.updateUserProfile = (req, res, next) => {
       }
       return res.send({ user });
     })
-    .catch(next);
+    .catch((err) => {
+      if (err.name === 'ValidationError') {
+        next(new RequestError('Некорректные данные при создании карточки'));
+      } else {
+        next(err);
+      }
+    });
 };
 
 module.exports.updateUserAvatar = (req, res, next) => {
@@ -113,5 +122,11 @@ module.exports.updateUserAvatar = (req, res, next) => {
       }
       return res.send({ user });
     })
-    .catch(next);
+    .catch((err) => {
+      if (err.name === 'ValidationError') {
+        next(new RequestError('Некорректные данные при создании карточки'));
+      } else {
+        next(err);
+      }
+    });
 };

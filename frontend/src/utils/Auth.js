@@ -1,5 +1,5 @@
 
-const baseUrl = 'http://api.keeryl-mesto.nomoredomains.work';
+const baseUrl = 'https://api.keeryl-mesto.nomoredomains.work';
 
 
 class Auth {
