@@ -43,17 +43,6 @@ function App() {
         });
     }, []);
 
-  // React.useEffect(() => {
-  //     api.getUserInfo()
-  //       .then(result => {
-  //         console.log(result)
-  //         setCurrentUser({...result});
-  //       })
-  //       .catch(error => {
-  //         console.log(error);
-  //       });
-  //   }, []);
-
   React.useEffect(() => {
     tokenCheck();
   }, []);

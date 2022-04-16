@@ -8,15 +8,6 @@ class Api {
     this._token = localStorage.getItem('token');
   }
 
-  // getUserInfo () {
-  //   return fetch(`${this._url}/users/me`, {
-  //     headers: {
-  //       'Authorization': `Bearer ${this._token}`,
-  //     }
-  //   })
-  //   .then(this._checkResponse);
-  // }
-
   getInitialCards () {
     return fetch(`${this._url}/cards`, {
       headers: {
