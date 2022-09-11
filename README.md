@@ -32,6 +32,18 @@ https://keerzy.nomoredomains.work/
 
 ## Project Dependencies
 
+### Frontend Deps
+
+– "react": "^17.0.2"
+    
+– "react-dom": "^17.0.2"
+    
+– "react-router-dom": "^5.3.0"
+    
+– "react-scripts": "4.0.3"
+    
+– "web-vitals": "^1.1.2"
+
 ### Backend Deps
 
 – "eslint": "^8.6.0"
