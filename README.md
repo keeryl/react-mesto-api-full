@@ -10,7 +10,7 @@
 
 ## Description
 
-This is SPA and API to create custom cards with registration and authorization build with React.js, Node.js, Express.js, MongoDB, Mongoose.js
+This is SPA and REST API to create custom cards with registration and authorization build with React.js, Node.js, Express.js, MongoDB, Mongoose.js
 
 ## Features
 
