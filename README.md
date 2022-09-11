@@ -30,6 +30,43 @@ This is SPA and API to create custom cards with registration and authorization b
 https://keerzy.nomoredomains.work/
 
 
+## Project Dependencies
+
+### Backend Deps
+
+– "eslint": "^8.6.0"
+
+– "eslint-config-airbnb-base": "^15.0.0"
+
+– "eslint-plugin-import": "^2.25.4"
+
+– "nodemon": "^2.0.15"
+
+– "bcrypt": "^5.0.1"
+
+– "body-parser": "^1.19.1"
+
+– "celebrate": "^15.0.1"
+
+– "cors": "^2.8.5"
+
+– "dotenv": "^16.0.0"
+
+– "express": "^4.17.2"
+
+– "express-winston": "^4.2.0"
+
+– "jsonwebtoken": "^8.5.1"
+
+– "mongoose": "^6.2.9"
+
+– "validator": "^13.7.0"
+
+– "winston": "^3.7.2"
+  
+  
+
+## Additional Info
 
 Server ip adress: 51.250.81.38
 
